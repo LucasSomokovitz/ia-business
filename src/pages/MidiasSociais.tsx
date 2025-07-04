@@ -134,7 +134,7 @@ Seja parte desta revolução na área da saúde e tecnologia. Seu investimento e
   return (
     <div className="min-h-screen bg-white">
       <Header />
-
+      
       {/* Carousel Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">

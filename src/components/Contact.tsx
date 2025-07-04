@@ -56,7 +56,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <div className="space-y-8">
-            <div>
+              <div>
               <h3 className="text-3xl font-medium text-black mb-6">
                 Envie sua mensagem
               </h3>
@@ -71,10 +71,10 @@ const Contact = () => {
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Nome completo
                   </label>
-                  <Input
+                  <Input 
                     id="name"
                     type="text"
-                    placeholder="Seu nome"
+                    placeholder="Seu nome" 
                     className="w-full px-4 py-3 border-gray-300 rounded-xl focus:border-black focus:ring-black transition-colors"
                   />
                 </div>
@@ -82,7 +82,7 @@ const Contact = () => {
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                     Email
                   </label>
-                  <Input
+                  <Input 
                     id="email"
                     type="email"
                     placeholder="seu@email.com"
@@ -90,12 +90,12 @@ const Contact = () => {
                   />
                 </div>
               </div>
-
+              
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
                   Telefone
                 </label>
-                <Input
+                <Input 
                   id="phone"
                   type="tel"
                   placeholder="(47) 99999-9999"
@@ -120,19 +120,19 @@ const Contact = () => {
                   <option value="showreel">Showreel</option>
                 </select>
               </div>
-
+              
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                   Mensagem
                 </label>
-                <Textarea
+                <Textarea 
                   id="message"
-                  placeholder="Conte-nos sobre seu projeto..."
+                  placeholder="Conte-nos sobre seu projeto..." 
                   rows={5}
                   className="w-full px-4 py-3 border-gray-300 rounded-xl focus:border-black focus:ring-black transition-colors resize-none"
                 />
               </div>
-
+              
               <Button 
                 type="submit"
                 size="lg" 

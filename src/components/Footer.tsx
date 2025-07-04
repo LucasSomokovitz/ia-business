@@ -8,16 +8,16 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           {/* Coluna Esquerda: Logo + texto */}
           <div className="flex flex-col items-start">
-            <img 
-              src="/lovable-uploads/11c891f3-3e7e-47ca-9d4a-c0dcb54ee9a0.png" 
-              alt="7 PRODUÇÃO" 
+              <img 
+                src="/lovable-uploads/11c891f3-3e7e-47ca-9d4a-c0dcb54ee9a0.png" 
+                alt="7 PRODUÇÃO" 
               className="h-12 w-auto mb-4 filter brightness-0 invert"
-            />
+              />
             <p className="text-gray-400 leading-relaxed text-sm font-light">
               Somos contadores de histórias alucinantes, mestres da câmera e especialistas em transformar ideias em realidade. Sua história merece ser contada com a qualidade que oferecemos.
             </p>
           </div>
-
+            
           {/* Coluna Central: Social Icons + Navegação */}
           <div className="flex flex-col items-center">
             <div className="flex space-x-4 mb-6 justify-center">
@@ -42,11 +42,11 @@ const Footer = () => {
                 <li key={item.label} className="flex items-center">
                   <Link to={item.to} className="hover:text-white transition-colors duration-300 font-light">{item.label}</Link>
                   {idx < arr.length - 1 && <span className="mx-2 text-gray-600">|</span>}
-                </li>
+              </li>
               ))}
             </ul>
           </div>
-
+          
           {/* Coluna Direita: Vazia */}
           <div></div>
         </div>

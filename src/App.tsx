@@ -10,6 +10,8 @@ import MidiasSociais from "./pages/MidiasSociais";
 import MidiasSociaisDetalhes from "./pages/MidiasSociaisDetalhes";
 import Showreel from "./pages/Showreel";
 import NotFound from "./pages/NotFound";
+import ProducaoVideo from "./pages/producao-video";
+import ServicosCompleto from "./pages/ServicosCompleto";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +28,8 @@ const App = () => (
           <Route path="/midias-sociais" element={<MidiasSociais />} />
           <Route path="/midias-sociais/:id" element={<MidiasSociaisDetalhes />} />
           <Route path="/showreel" element={<Showreel />} />
+          <Route path="/producao-video" element={<ProducaoVideo />} />
+          <Route path="/servicos-completo" element={<ServicosCompleto />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

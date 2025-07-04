@@ -34,6 +34,15 @@ const Header = () => {
     }, 100);
   };
 
+  const handleInicioClick = (e: React.MouseEvent) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
   const navigationItems = [
     { path: "/", label: "Início" },
     { path: "#nossa-essencia", label: "Nossa Essência" },
@@ -48,26 +57,38 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center group">
+            <a href="/" onClick={() => window.location.href = '/'} className="flex items-center group">
               <img 
                 src="/lovable-uploads/11c891f3-3e7e-47ca-9d4a-c0dcb54ee9a0.png" 
                 alt="7 PRODUÇÃO" 
                 className="h-10 w-auto transition-transform duration-300 group-hover:scale-105"
               />
-            </Link>
+            </a>
           </div>
           
           {/* Navigation */}
           <nav className="hidden lg:flex items-center space-x-12">
             {navigationItems.map((item) => (
-              <a 
-                key={item.path}
-                href={item.path} 
-                className="text-gray-600 hover:text-black transition-colors duration-300 font-medium text-sm tracking-wide relative group"
-              >
-                {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
-              </a>
+              item.label === "Início" ? (
+                <a
+                  key={item.path}
+                  href={item.path}
+                  onClick={handleInicioClick}
+                  className="text-gray-600 hover:text-black transition-colors duration-300 font-medium text-sm tracking-wide relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              ) : (
+                <a 
+                  key={item.path}
+                  href={item.path} 
+                  className="text-gray-600 hover:text-black transition-colors duration-300 font-medium text-sm tracking-wide relative group"
+                >
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-black transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              )
             ))}
           </nav>
           
@@ -100,14 +121,35 @@ const Header = () => {
               
               <div className="flex flex-col p-8 space-y-2">
                 {navigationItems.map((item) => (
-                  <a
-                    key={item.path}
-                    href={item.path}
-                    onClick={() => handleMobileNavClick(item.path)}
-                    className="text-lg font-medium text-gray-700 hover:text-black transition-colors duration-200 py-4 border-b border-gray-100 last:border-b-0"
-                  >
-                    {item.label}
-                  </a>
+                  item.label === "Início" ? (
+                    <a
+                      key={item.path}
+                      href={item.path}
+                      onClick={(e) => {
+                        setIsDrawerOpen(false);
+                        setTimeout(() => {
+                          if (location.pathname === "/") {
+                            e.preventDefault();
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          } else {
+                            navigate("/");
+                          }
+                        }, 100);
+                      }}
+                      className="text-lg font-medium text-gray-700 hover:text-black transition-colors duration-200 py-4 border-b border-gray-100 last:border-b-0"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <a
+                      key={item.path}
+                      href={item.path}
+                      onClick={() => handleMobileNavClick(item.path)}
+                      className="text-lg font-medium text-gray-700 hover:text-black transition-colors duration-200 py-4 border-b border-gray-100 last:border-b-0"
+                    >
+                      {item.label}
+                    </a>
+                  )
                 ))}
                 
                 <Button 

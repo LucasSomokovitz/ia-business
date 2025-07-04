@@ -6,7 +6,7 @@ const Externa = () => {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <Header />
-
+      
       {/* Content Section */}
       <section className="py-20 flex-grow">
         <div className="container mx-auto px-6">

@@ -2,8 +2,8 @@ import { Award, Users, Calendar, Star } from "lucide-react";
 
 const About = () => {
   const stats = [
-    { icon: Calendar, number: "10+", label: "Anos de Experiência" },
-    { icon: Users, number: "200+", label: "Projetos Realizados" },
+    { icon: Calendar, number: "5+", label: "Anos de Experiência" },
+    { icon: Users, number: "150+", label: "Projetos Realizados" },
     { icon: Award, number: "15+", label: "Prêmios Conquistados" },
     { icon: Star, number: "98%", label: "Satisfação dos Clientes" }
   ];
@@ -23,18 +23,18 @@ const About = () => {
                 Sobre a
                 <br />
                 <span className="font-medium text-gray-100">7 Produção</span>
-              </h2>
+            </h2>
               
               <div className="space-y-6 text-lg text-gray-300 leading-relaxed font-light">
                 <p>
-                  Somos uma produtora audiovisual especializada em criar conteúdo de alta qualidade que 
-                  conecta marcas e pessoas através de narrativas poderosas e técnica impecável.
-                </p>
+              Somos uma produtora audiovisual especializada em criar conteúdo de alta qualidade que 
+              conecta marcas e pessoas através de narrativas poderosas e técnica impecável.
+            </p>
                 <p>
-                  Nossa equipe combina criatividade artística com tecnologia de ponta para entregar 
-                  resultados que superam expectativas. Cada projeto é tratado com dedicação exclusiva 
-                  e atenção aos mínimos detalhes.
-                </p>
+              Nossa equipe combina criatividade artística com tecnologia de ponta para entregar 
+              resultados que superam expectativas. Cada projeto é tratado com dedicação exclusiva 
+              e atenção aos mínimos detalhes.
+            </p>
               </div>
             </div>
             

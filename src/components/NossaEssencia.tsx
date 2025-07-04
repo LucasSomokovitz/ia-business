@@ -34,7 +34,7 @@ const NossaEssencia = () => {
     },
     {
       name: "Lucas Narciso",
-      role: "Web Designer",
+      role: "Web Designer, Programador Front-end",
       image: "/lovable-uploads/9abcf4e6-cecf-4dd9-a862-5d18e895dc7a.png",
       instagram: "https://www.instagram.com/lucas_narciso_ia/"
     }
@@ -47,7 +47,7 @@ const NossaEssencia = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center mb-24 text-center lg:text-left">
           {/* Left Content */}
           <div className="space-y-12">
-            <div className="space-y-8">
+          <div className="space-y-8">
               <div className="inline-flex items-center space-x-2 text-sm font-medium text-gray-600 tracking-wide uppercase">
                 <span className="w-8 h-px bg-gray-300"></span>
                 <span>Nossa Essência</span>
@@ -77,11 +77,11 @@ const NossaEssencia = () => {
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-light text-black mb-2">10+</div>
+                <div className="text-4xl font-light text-black mb-2">5+</div>
                 <div className="text-sm text-gray-600 font-light">Anos de Experiência</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-light text-black mb-2">200+</div>
+                <div className="text-4xl font-light text-black mb-2">150+</div>
                 <div className="text-sm text-gray-600 font-light">Projetos Realizados</div>
               </div>
               <div className="text-center">

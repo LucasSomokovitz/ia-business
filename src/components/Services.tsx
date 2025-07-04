@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Camera, Video, Mic, Monitor, Smartphone, Users } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const Services = () => {
+  const navigate = useNavigate();
   const services = [
     {
       icon: Camera,
@@ -33,12 +35,52 @@ const Services = () => {
       title: "Produção Externa",
       description: "Levamos nossa expertise para qualquer local, adaptando-nos às suas necessidades.",
       color: "from-indigo-500 to-purple-500"
+    }
+  ];
+
+  // Galeria de vídeos antigos (copiado do Portfolio)
+  const youtubeVideos = [
+    {
+      id: 1,
+      title: "Vídeo Promocional 1",
+      url: "https://www.youtube.com/embed/fefz-CuCalQ",
+      thumb: "https://img.youtube.com/vi/fefz-CuCalQ/hqdefault.jpg"
     },
     {
-      icon: Video,
-      title: "Showreel",
-      description: "Apresentações profissionais que destacam o melhor do seu trabalho e marca.",
-      color: "from-yellow-500 to-orange-500"
+      id: 2,
+      title: "Vídeo Promocional 2",
+      url: "https://www.youtube.com/embed/ialji2ry1-w",
+      thumb: "https://img.youtube.com/vi/ialji2ry1-w/hqdefault.jpg"
+    },
+    {
+      id: 4,
+      title: "Vídeo Promocional 4",
+      url: "https://www.youtube.com/embed/KLEWsAb1bZ8",
+      thumb: "https://img.youtube.com/vi/KLEWsAb1bZ8/hqdefault.jpg"
+    },
+    {
+      id: 5,
+      title: "Vídeo Promocional 5",
+      url: "https://www.youtube.com/embed/9RDhZ6OmIFw",
+      thumb: "https://img.youtube.com/vi/9RDhZ6OmIFw/hqdefault.jpg"
+    },
+    {
+      id: 6,
+      title: "Vídeo Promocional 6",
+      url: "https://www.youtube.com/embed/jA4WqdHIdsU",
+      thumb: "https://img.youtube.com/vi/jA4WqdHIdsU/hqdefault.jpg"
+    },
+    {
+      id: 7,
+      title: "Vídeo Promocional 7",
+      url: "https://www.youtube.com/embed/f1y2FI8XxbI",
+      thumb: "https://img.youtube.com/vi/f1y2FI8XxbI/hqdefault.jpg"
+    },
+    {
+      id: 8,
+      title: "Vídeo Promocional 8",
+      url: "https://www.youtube.com/embed/L2lGp24D8hk",
+      thumb: "https://img.youtube.com/vi/L2lGp24D8hk/hqdefault.jpg"
     }
   ];
 
@@ -63,11 +105,12 @@ const Services = () => {
             até a entrega final, com qualidade profissional e criatividade única.
           </p>
         </div>
-
-        {/* Services Grid */}
+        
+        {/* Apenas a grid de serviços, sem tabs */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon;
+            const isProducaoVideo = service.title === "Produção de Vídeo";
             return (
               <div 
                 key={index}
@@ -80,16 +123,16 @@ const Services = () => {
                 
                 {/* Content */}
                 <h3 className="text-2xl font-medium text-black mb-4 group-hover:text-gray-800 transition-colors">
-                  {service.title}
+                    {service.title}
                 </h3>
                 
                 <p className="text-gray-600 leading-relaxed font-light mb-6">
-                  {service.description}
-                </p>
+                    {service.description}
+                  </p>
                 
                 {/* Learn More Link */}
-                <Link 
-                  to="/servicos" 
+                <button
+                  onClick={() => isProducaoVideo ? navigate('/producao-video') : navigate('/servicos')}
                   className="inline-flex items-center text-black font-medium hover:text-gray-600 transition-colors duration-300 group/link"
                 >
                   Saiba mais
@@ -101,7 +144,7 @@ const Services = () => {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </Link>
+                </button>
               </div>
             );
           })}
@@ -109,7 +152,7 @@ const Services = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <Link to="/servicos">
+          <Link to="/portfolio-completo">
             <Button 
               size="lg" 
               className="bg-black hover:bg-gray-800 text-white px-12 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105"

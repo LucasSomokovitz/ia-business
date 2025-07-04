@@ -1,4 +1,3 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -135,33 +134,18 @@ const PortfolioCompleto = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-
+      
       {/* Slideshow Section */}
       <section className="py-20 bg-brand-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-7xl mx-auto">
             {/* Slideshow Container */}
             <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
-              {/* Navigation Buttons */}
-              <button
-                onClick={prevSlide}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full p-3 transition-all duration-300"
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
-              
-              <button
-                onClick={nextSlide}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-brand-accent hover:bg-brand-accent/90 text-white rounded-full p-3 transition-all duration-300"
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
-
               {/* Slide Content */}
               <div className="grid grid-cols-1 lg:grid-cols-3 min-h-[700px]">
                 {/* Image Section - 2/3 */}
                 <div 
-                  className="lg:col-span-2 relative overflow-hidden cursor-pointer group"
+                  className="lg:col-span-2 relative overflow-hidden cursor-pointer group mt-6 ml-6"
                   onClick={() => {
                     if (currentItem.link) {
                       window.open(currentItem.link, '_blank');
@@ -211,20 +195,20 @@ const PortfolioCompleto = () => {
                       ))}
                     </ul>
                   </div>
-
-                  {/* Slide Indicators */}
-                  <div className="flex space-x-2">
-                    {portfolioItems.map((_, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setCurrentSlide(index)}
-                        className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                          index === currentSlide ? 'bg-brand-accent' : 'bg-brand-gray-300'
-                        }`}
-                      />
-                    ))}
-                  </div>
                 </div>
+              </div>
+              {/* Bolinhas de navegação */}
+              <div className="flex justify-center items-center gap-2 mt-8 pb-4">
+                {portfolioItems.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      idx === currentSlide ? 'bg-brand-accent w-8' : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                    aria-label={`Ir para slide ${idx + 1}`}
+                  />
+                ))}
               </div>
             </div>
 

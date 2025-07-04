@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Play, ArrowRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -34,6 +34,19 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const handleScrollToVideos = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const servicos = document.getElementById("servicos");
+    if (servicos) {
+      servicos.scrollIntoView({ behavior: "smooth" });
+      // Aguarda a rolagem e ativa a aba de vídeos
+      setTimeout(() => {
+        const tab = document.querySelector('[data-state][value="producao"]') as HTMLElement;
+        if (tab) tab.click();
+      }, 600);
+    }
+  };
+
   return (
     <section className="min-h-screen bg-white flex items-center relative overflow-hidden">
       {/* Background Pattern */}
@@ -43,7 +56,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           {/* Left Content */}
           <div className="space-y-12">
-            <div className="space-y-8">
+          <div className="space-y-8">
               {/* Subtitle */}
               <div className="inline-flex items-center space-x-2 text-sm font-medium text-gray-600 tracking-wide uppercase">
                 <span className="w-8 h-px bg-gray-300"></span>
@@ -51,14 +64,14 @@ const Hero = () => {
               </div>
               
               {/* Main Title */}
-              <div className="space-y-6">
+            <div className="space-y-6">
                 <h1 className="text-6xl md:text-8xl font-light text-black leading-[0.9] tracking-tight">
                   Criamos
                   <br />
                   <span className="font-medium text-gray-900">Experiências</span>
                   <br />
                   <span className="font-light text-gray-700">Audiovisuais</span>
-                </h1>
+              </h1>
               </div>
               
               {/* Description */}
@@ -70,38 +83,26 @@ const Hero = () => {
             
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Link to="/showreel">
-                <Button 
-                  size="lg" 
-                  className="bg-black hover:bg-gray-800 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 group"
-                >
-                  <Play className="mr-3 w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Ver Showreel
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              
-              <Link to="/portfolio">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium transition-all duration-300"
-                >
-                  Nossos Projetos
-                </Button>
-              </Link>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-gray-400 px-8 py-4 rounded-full font-medium transition-all duration-300"
+                onClick={handleScrollToVideos}
+              >
+                Nossos Projetos
+              </Button>
             </div>
           </div>
           
           {/* Right Content - Image Gallery */}
           <div className="relative">
             <div className="aspect-[4/5] bg-gray-100 rounded-3xl overflow-hidden shadow-2xl">
-              <img 
+                      <img 
                 src={images[currentImageIndex].src}
                 alt={images[currentImageIndex].alt}
                 className="w-full h-full object-cover transition-opacity duration-1000"
-              />
-            </div>
+                      />
+                    </div>
             
             {/* Image Navigation Dots */}
             <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
