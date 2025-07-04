@@ -1,0 +1,17 @@
+
+# Redirect all routes to index.html for React Router to handle
+/*    /index.html   200
+
+# Specific routes for better SEO and direct access
+/videos           /index.html   200
+/audio            /index.html   200
+/externa          /index.html   200
+/estudio          /index.html   200
+/nossa-essencia   /index.html   200
+/servicos         /index.html   200
+/portfolio        /index.html   200
+/portfolio-completo /index.html   200
+/contato          /index.html   200
+/midias-sociais   /index.html   200
+/midias-sociais/* /index.html   200
+/showreel         /index.html   200
